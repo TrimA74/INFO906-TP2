@@ -16,6 +16,17 @@ Un EJB session sans état (stateless) sert de façade pour les opérations banca
 Un client WEB permet de réaliser l'ensemble des opérations sur les comptes : création, débit, crédit, transfert, visualisation ou recherche (cf. client Web). 
 Ce client comporte deux page jsp et plusieurs servlet (1 par opération). La connexion au bean session se fait à l'aide de son interface distante.
 
+## Getting started
+### Démarrer la BDD Glassfish 
+Dans le dossier où se trouve Glassfish
+
+- Windows
+```bash
+> bin\asadmin.bat start-database
+```
+### Démarrer glassfish avec le bon artéfact
+Utiliser l'artéfact `CompteEar.ear` et pas le `CompteWeb.war` sinon l'EJB n'est pas lancé.
+
 ## Partie EJB
 
 L'objet persistant, Compte, ainsi que l'EJB session et son interface sont regroupés ensembles dans la même archive.
