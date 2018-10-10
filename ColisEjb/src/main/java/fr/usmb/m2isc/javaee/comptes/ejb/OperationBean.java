@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import fr.usmb.m2isc.javaee.comptes.ColisState;
 import fr.usmb.m2isc.javaee.comptes.jpa.Colis;
 import fr.usmb.m2isc.javaee.comptes.jpa.Compte;
 
@@ -76,4 +77,14 @@ public class OperationBean implements Operation {
 		em.persist(colis);
 		return colis;
 	}
+
+    @Override
+    public Colis editColis(String identifiant, double latitude, double longitude, String emplacement, ColisState state) {
+        Colis colis = em.find(Colis.class,identifiant);
+        colis.setLatitude(latitude);
+        colis.setEmplacement(emplacement);
+        colis.setLongitude(longitude);
+        colis.setState(state);
+        return colis;
+    }
 }

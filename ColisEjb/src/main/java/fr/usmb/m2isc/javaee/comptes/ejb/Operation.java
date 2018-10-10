@@ -2,6 +2,7 @@ package fr.usmb.m2isc.javaee.comptes.ejb;
 
 import java.util.List;
 
+import fr.usmb.m2isc.javaee.comptes.ColisState;
 import fr.usmb.m2isc.javaee.comptes.jpa.Colis;
 import fr.usmb.m2isc.javaee.comptes.jpa.Compte;
 
@@ -23,4 +24,5 @@ public interface Operation {
 
 	Colis registerColis(String identifiant, double poid, String name, String origin, String destination);
 
+	Colis editColis(String identifiant, double latitude, double longitude, String emplacement, ColisState state);
 }
