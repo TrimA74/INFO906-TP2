@@ -18,6 +18,7 @@
     <p>poid : ${colis.poid } </p>
     <p>origine : ${colis.origin } </p>
     <p>destination : ${colis.destination } </p>
+    <p>state : ${colis.state } </p>
     <a href="index.html">Revenir à la page principale</a>
 </body>
 </html>
