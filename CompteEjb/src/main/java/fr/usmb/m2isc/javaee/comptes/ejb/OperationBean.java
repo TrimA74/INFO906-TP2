@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import fr.usmb.m2isc.javaee.comptes.jpa.Colis;
 import fr.usmb.m2isc.javaee.comptes.jpa.Compte;
 
 @Stateless
@@ -67,5 +68,12 @@ public class OperationBean implements Operation {
 		crediter(numCpt2, val);
 		debiter(numCpt1, val);
 		if (val < 0 ) throw new EJBException("retrait negatif");
+	}
+
+	@Override
+	public Colis registerColis(String identifiant, double poid, String name, String origin, String destination) {
+		Colis colis = new Colis(identifiant,poid,name,origin,destination);
+		em.persist(colis);
+		return colis;
 	}
 }

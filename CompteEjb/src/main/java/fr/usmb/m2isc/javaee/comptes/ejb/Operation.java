@@ -2,6 +2,7 @@ package fr.usmb.m2isc.javaee.comptes.ejb;
 
 import java.util.List;
 
+import fr.usmb.m2isc.javaee.comptes.jpa.Colis;
 import fr.usmb.m2isc.javaee.comptes.jpa.Compte;
 
 public interface Operation {
@@ -19,5 +20,7 @@ public interface Operation {
 	List<Compte> findComptes(String partialNumber);
 
 	List<Compte> findAllComptes();
+
+	Colis registerColis(String identifiant, double poid, String name, String origin, String destination);
 
 }
