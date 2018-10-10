@@ -17,13 +17,13 @@ include 'services:webservice'
 
 rootProject.name = 'ExempleCpts'
 
-include ':CompteEjb'
+include ':ColisEjb'
 include ':ColisWeb'
-include ':CompteEar'
+include ':ColisEar'
 //include ':CompteEjb'
 //include ':CompteWeb'
 //include ':CompteEar'
 
-project(':CompteEjb').projectDir = "$rootDir/CompteEjb" as File
+project(':ColisEjb').projectDir = "$rootDir/ColisEjb" as File
 project(':ColisWeb').projectDir = "$rootDir/ColisWeb" as File
-project(':CompteEar').projectDir = "$rootDir/CompteEar" as File
+project(':ColisEar').projectDir = "$rootDir/ColisEar" as File

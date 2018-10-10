@@ -11,7 +11,7 @@ repositories {
 dependencies {
     //deploy project(':CompteEjb')
 	//deploy project(':CompteWeb')
-    deploy project(path: ':CompteEjb', configuration: 'archives')
+    deploy project(path: ':ColisEjb', configuration: 'archives')
 	deploy project(path: ':ColisWeb', configuration: 'archives')
 }
 
