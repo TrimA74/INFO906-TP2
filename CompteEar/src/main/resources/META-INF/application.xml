@@ -6,8 +6,8 @@
   </module>
   <module>
     <web>
-      <web-uri>CompteWeb.war</web-uri>
-      <context-root>CompteWeb</context-root>
+      <web-uri>ColisWeb.war</web-uri>
+      <context-root>ColisWeb</context-root>
     </web>
   </module>
 </application>

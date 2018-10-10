@@ -2,16 +2,19 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Manipulation des comptes bancaires</title>
+	<title>Application de gestion de colis</title>
 	<link rel="stylesheet" type="text/css" href="css/base.css" >
 </head>
 <body>
 <h1>Manipulation des comptes bancaires</h1>
-	<h2>Créer un compte :</h2>
-	<form action="CreerCompteServlet" method="post">
-		numéro : <input type="text" name="numero">
-		valeur initiale : <input type="number" name ="depot">
-		<input type="submit" value="valider">
+	<h2>Enregistrer un nouveau colis :</h2>
+	<form action="RegisterColisServlet" method="post">
+		identifiant : <input type="text" name="identifiant">
+		poid : <input type="number" name ="poid">
+		name : <input type="number" name ="name">
+		origine : <input type="number" name ="origin">
+		destination : <input type="number" name ="destination">
+		<input type="submit" value="Enregistrer">
 	</form>
 	<h2>Visualiser un compte :</h2>
 	<form action="AfficherCompteServlet" method="post">

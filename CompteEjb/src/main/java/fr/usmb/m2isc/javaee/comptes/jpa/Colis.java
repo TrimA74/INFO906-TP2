@@ -39,6 +39,7 @@ public class Colis implements Serializable {
         this.name = name;
         this.origin = origin;
         this.destination = destination;
+        this.state = ColisState.REGISTERED;
     }
 
     public String getIdentifiant() {
