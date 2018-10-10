@@ -1,0 +1,7 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "dependencies": {
+    "places.js": "^1.11.0"
+  }
+}
