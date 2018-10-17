@@ -12,6 +12,8 @@ public interface Operation {
 
 	Compte getCompte(String number);
 
+	Colis getColis(String number);
+
 	Compte crediter(String number, double val);
 
 	Compte debiter(String number, double val);
