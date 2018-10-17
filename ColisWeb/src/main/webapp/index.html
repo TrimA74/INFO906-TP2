@@ -8,38 +8,47 @@
 
 </head>
 <body>
-	<h1>Manipulation des comptes bancaires</h1>
-	<h2>Enregistrer un nouveau colis :</h2>
-	<form action="RegisterColisServlet" method="post">
+    <div class="navbar">
+        <a href="/ColisWeb/"><button>Ajouter un colis</button></a>
+        <a href="/ColisWeb/DisplayAllColisServlet"><button>Visualiser les colis</button></a>
+    </div>
+	<div class="container">
+        <h1>Gestion des colis</h1>
 		<div>
-			<label>Identifiant</label>
-			<input type="text" name="identifiant"/>
-		</div>
+			<h2>Enregistrer un nouveau colis :</h2>
+			<form action="RegisterColisServlet" method="post">
+				<div>
+					<label>Identifiant</label>
+					<input type="text" name="identifiant"/>
+				</div>
 
-		<div>
-			<label>Poids</label>
-			<input type="text" name="poid"/>
-		</div>
+				<div>
+					<label>Poids</label>
+					<input type="text" name="poid"/>
+				</div>
 
-		<div>
-			<label>Valeur</label>
-			<input type="text" name="name"/>
-		</div>
+				<div>
+					<label>Valeur</label>
+					<input type="text" name="name"/>
+				</div>
 
-		<div>
-			<label>Lieu de départ</label>
-			<input type="search" id="cityStart" placeholder="Ville" name="origin"/>
-		</div>
+				<div>
+					<label>Lieu de départ</label>
+					<input type="search" id="cityStart" placeholder="Ville" name="origin"/>
+				</div>
 
-		<div>
-			<label>Lieu d'arrivé</label>
-			<input type="search" id="cityStop" placeholder="Ville" name="destination"/>
-		</div>
+				<div>
+					<label>Lieu d'arrivé</label>
+					<input type="search" id="cityStop" placeholder="Ville" name="destination"/>
+				</div>
 
-		<div>
-			<input type="submit" value="Envoyer"/>
+				<div>
+					<input type="submit" value="Envoyer"/>
+				</div>
+			</form>
 		</div>
-	</form>
+	</div>
+
 </body>
 <footer>
 	<script src="asset/js/places.js"></script>
