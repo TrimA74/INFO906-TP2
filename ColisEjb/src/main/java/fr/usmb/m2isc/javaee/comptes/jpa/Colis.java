@@ -9,7 +9,7 @@ import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
 @NamedQueries({
-        @NamedQuery(name="all", query="SELECT c FROM Compte c"),
+        @NamedQuery(name="allColis", query="SELECT c FROM Colis c"),
         @NamedQuery(name="findWithNum", query="SELECT c FROM Compte c WHERE c.numero LIKE :partialNum ORDER BY c.numero ASC")
 })
 @Entity
