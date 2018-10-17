@@ -47,6 +47,12 @@ public class OperationBean implements Operation {
 	}
 
 	@Override
+	public List<Colis> findAllColis() {
+		Query req = em.createNamedQuery("allColis");
+		return req.getResultList();
+	}
+
+	@Override
 	public List<Compte> findComptes(String partialNumber) {
 		Query req = em.createNamedQuery("findWithNum");
 		req.setParameter("partialNum", partialNumber);

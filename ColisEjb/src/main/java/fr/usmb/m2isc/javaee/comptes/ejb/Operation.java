@@ -24,6 +24,8 @@ public interface Operation {
 
 	List<Compte> findAllComptes();
 
+	List<Colis> findAllColis();
+
 	Colis registerColis(String identifiant, double poid, String name, String origin, String destination);
 
 	Colis editColis(String identifiant, double latitude, double longitude, String emplacement, ColisState state);
