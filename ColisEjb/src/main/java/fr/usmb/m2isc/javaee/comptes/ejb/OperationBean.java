@@ -36,6 +36,11 @@ public class OperationBean implements Operation {
 	}
 
 	@Override
+	public Colis getColis(String number) {
+		return em.find(Colis.class, number);
+	}
+
+	@Override
 	public List<Compte> findAllComptes() {
 		Query req = em.createNamedQuery("all");
 		return req.getResultList();
