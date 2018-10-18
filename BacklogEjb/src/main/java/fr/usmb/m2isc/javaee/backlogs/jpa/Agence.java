@@ -8,11 +8,16 @@ public class Agence implements Serializable {
     public Agence(){
 
     }
+
+    public Agence(String name) {
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(mappedBy = "agence")
+    @OneToOne()
     private Backlog backlog;
 
     private String name;

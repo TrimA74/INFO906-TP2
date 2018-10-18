@@ -30,4 +30,8 @@ public class Entry implements Serializable {
 
     private String description;
 
+    public Entry (){
+
+    }
+
 }

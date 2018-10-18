@@ -17,5 +17,9 @@ public class Comment implements Serializable {
     @ManyToOne
     private User author;
 
+    public Comment (){
+
+    }
+
 
 }
