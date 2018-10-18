@@ -1,7 +1,7 @@
 package fr.usmb.m2isc.javaee.backlogs.web;
 
 import fr.usmb.m2isc.javaee.backlogs.ejb.Operation;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Colis;
+import fr.usmb.m2isc.javaee.backlogs.jpa.Compte;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet utilisee pour afficher un colis.
+ * Servlet utilisee pour afficher un compte.
  */
-@WebServlet("/DisplayColisServlet")
-public class DisplayColisServlet extends HttpServlet {
+@WebServlet("/FetchAgenciesServlet")
+public class FetchAgenciesServlet {
     private static final long serialVersionUID = 1L;
 
     @EJB
@@ -24,7 +24,7 @@ public class DisplayColisServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DisplayColisServlet() {
+    public FetchAgenciesServlet() {
         super();
     }
 
@@ -32,20 +32,17 @@ public class DisplayColisServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String num = request.getParameter("identifiant");
+        Agence agences = ejb.getAllAgence();
 
-        Colis colis = ejb.getColis(num);
+        request.setAttribute("agences", agences);
 
-        request.setAttribute("colis", colis);
-
-        request.getRequestDispatcher("/DisplayColis.jsp").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
 
+    }
 }
