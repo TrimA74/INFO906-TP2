@@ -1,6 +1,7 @@
 package fr.usmb.m2isc.javaee.backlogs.web;
 
 import fr.usmb.m2isc.javaee.backlogs.ejb.Operation;
+import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Compte;
 
 import javax.ejb.EJB;
