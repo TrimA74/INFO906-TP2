@@ -42,9 +42,13 @@ public class RegisterColisServlet extends HttpServlet{
         String name= request.getParameter("name");
         String origin = request.getParameter("origin");
         String destination = request.getParameter("destination");
+        String latitude = request.getParameter("lat");
+        String longitude = request.getParameter("lng");
         double poid = Double.parseDouble(poidParameter);
+        double lat = Double.parseDouble(latitude);
+        double lng = Double.parseDouble(longitude);
 
-        Colis colis = op.registerColis(identifiant,poid,name,origin,destination);
+        Colis colis = op.registerColis(identifiant,poid,name,origin,destination,lat,lng);
 
         request.setAttribute("colis", colis);
 

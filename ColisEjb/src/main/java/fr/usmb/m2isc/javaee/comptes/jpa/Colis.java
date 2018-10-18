@@ -32,7 +32,7 @@ public class Colis implements Serializable {
     }
 
 
-    public Colis(String identifiant, double poid, String name, String origin, String destination) {
+    public Colis(String identifiant, double poid, String name, String origin, String destination, double lat, double lng) {
         super();
         this.identifiant = identifiant;
         this.poid = poid;
@@ -40,6 +40,8 @@ public class Colis implements Serializable {
         this.origin = origin;
         this.destination = destination;
         this.state = ColisState.REGISTERED;
+        this.latitude = lat;
+        this.longitude = lng;
     }
 
     public String getIdentifiant() {

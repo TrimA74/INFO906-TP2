@@ -40,8 +40,8 @@ public class EditColisServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String identifiant = request.getParameter("identifiant");
-        String latitudeParameter = request.getParameter("latitude");
-        String longitudeParameter= request.getParameter("longitude");
+        String latitudeParameter = request.getParameter("lat");
+        String longitudeParameter= request.getParameter("lng");
         String emplacement = request.getParameter("emplacement");
         String stateParameter = request.getParameter("etat");
 
