@@ -26,7 +26,7 @@ public interface Operation {
 
 	List<Colis> findAllColis();
 
-	Colis registerColis(String identifiant, double poid, String name, String origin, String destination);
+	Colis registerColis(String identifiant, double poid, String name, String origin, String destination, double lat, double lng);
 
 	Colis editColis(String identifiant, double latitude, double longitude, String emplacement, ColisState state);
 }

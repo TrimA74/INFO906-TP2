@@ -83,8 +83,8 @@ public class OperationBean implements Operation {
 	}
 
 	@Override
-	public Colis registerColis(String identifiant, double poid, String name, String origin, String destination) {
-		Colis colis = new Colis(identifiant,poid,name,origin,destination);
+	public Colis registerColis(String identifiant, double poid, String name, String origin, String destination, double lat, double lng) {
+		Colis colis = new Colis(identifiant,poid,name,origin,destination, lat, lng);
 		em.persist(colis);
 		return colis;
 	}
