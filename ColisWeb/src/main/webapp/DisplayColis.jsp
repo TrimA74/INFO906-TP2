@@ -28,7 +28,6 @@
     <p>state : ${colis.state } </p>
     <p>latitude : ${colis.latitude } </p>
     <p>longitude : ${colis.longitude } </p>
-    <p>longitude : ${colis.longitude } </p>
     <p>emplacement : ${colis.emplacement } </p>
 
 </body>

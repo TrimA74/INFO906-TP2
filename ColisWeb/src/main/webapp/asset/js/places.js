@@ -12,10 +12,6 @@ var placesAutocompleteStart = places({
     }
 });
 
-placesAutocompleteStart.on('change', e => {
-    console.log(e.suggestion);
-});
-
 var placesAutocompleteStop = places({
     container: document.querySelector('#cityStop'),
     type: 'city',
@@ -30,6 +26,11 @@ var placesAutocompleteStop = places({
     }
 });
 
-placesAutocompleteStop.on('change', e => {
-    console.log(e.suggestion);
+placesAutocompleteStart.on('change', e => {
+    var coordinates = e.suggestion.latlng;
+    if(document.getElementById('lat') !== undefined) {
+        document.getElementById('lat').value = coordinates.lat;
+        document.getElementById('lng').value = coordinates.lng;
+    }
+
 });
