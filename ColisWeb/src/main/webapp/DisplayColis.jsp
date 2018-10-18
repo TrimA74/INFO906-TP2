@@ -19,36 +19,18 @@
 
     <h1>Affichage du colis</h1>
     <h2>Informations colis :</h2>
-    <form>
-        <div>
-            <label>Identifiant</label>
-            <input type="text" name="identifiant" value="${colis.identifiant }"/>
-        </div>
 
-        <div>
-            <label>Poids</label>
-            <input type="number" name="poid" value="${colis.poid }"/>
-        </div>
+    <p>identifiant : ${colis.identifiant }</p>
+    <p>name : ${colis.name }</p>
+    <p>poid : ${colis.poid } </p>
+    <p>origine : ${colis.origin } </p>
+    <p>destination : ${colis.destination } </p>
+    <p>state : ${colis.state } </p>
+    <p>latitude : ${colis.latitude } </p>
+    <p>longitude : ${colis.longitude } </p>
+    <p>longitude : ${colis.longitude } </p>
+    <p>emplacement : ${colis.emplacement } </p>
 
-        <div>
-            <label>Valeur</label>
-            <input type="text" name="name" value="${colis.name }"/>
-        </div>
-
-        <div>
-            <label>Lieu de départ</label>
-            <input type="search" id="cityStart" placeholder="Ville" name="origin" value="${colis.origin }"/>
-        </div>
-
-        <div>
-            <label>Lieu d'arrivé</label>
-            <input type="search" id="cityStop" placeholder="Ville" name="destination" ${colis.destination }/>
-        </div>
-
-        <div>
-            <input type="submit" value="Modifier"/>
-        </div>
-    </form>
 </body>
 <footer>
     <script src="asset/js/places.js"></script>
