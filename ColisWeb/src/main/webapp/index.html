@@ -34,14 +34,16 @@
 
 				<div>
 					<label>Lieu de départ</label>
-					<input type="search" id="cityStart" placeholder="Ville" name="origin"/>
+					<input type="search" id="cityStart" placeholder="Ville" />
+                    <input type="hidden" id="start" name="origin"/>
                     <input type="hidden" id="lat" name="lat"/>
                     <input type="hidden" id="lng" name="lng"/>
 				</div>
 
 				<div>
 					<label>Lieu d'arrivé</label>
-					<input type="search" id="cityStop" placeholder="Ville" name="destination"/>
+					<input type="search" id="cityStop" placeholder="Ville"/>
+                    <input type="hidden" id="stop" name="destination"/>
 				</div>
 
 				<div>
@@ -57,11 +59,23 @@
 				<div>
 					<label>Localisation</label>
 					<input type="search" id="cityPosition" placeholder="Ville" name="localisation"/>
+                    <input type="hidden" id="latPos" name="lat"/>
+                    <input type="hidden" id="lngPos" name="lng"/>
 				</div>
 				<div>
 					<label >Emplacement</label>
 					<input type="text" name="emplacement">
 				</div>
+                <div>
+                    <label>Etat</label>
+                    <select name="state">
+                        <option value="REGISTERED">REGISTERED</option>
+                        <option value="ONGOING">ONGOING</option>
+                        <option value="PENDING">PENDING</option>
+                        <option value="DELIVERED">DELIVERED</option>
+                        <option value="BLOCKED">BLOCKED</option>
+                    </select>
+                </div>
 				<div>
 					<input type="submit" value="Envoyer">
 				</div>
