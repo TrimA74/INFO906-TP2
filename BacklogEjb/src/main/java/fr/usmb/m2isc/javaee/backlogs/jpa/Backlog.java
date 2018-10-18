@@ -2,6 +2,7 @@ package fr.usmb.m2isc.javaee.backlogs.jpa;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,4 +17,7 @@ public class Backlog implements Serializable {
 
     @OneToMany
     private List<Entry> entries;
+
+
+
 }

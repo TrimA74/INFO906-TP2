@@ -15,5 +15,7 @@ public class Agence implements Serializable {
     @OneToOne(mappedBy = "agence")
     private Backlog backlog;
 
+    private String name;
+
 
 }

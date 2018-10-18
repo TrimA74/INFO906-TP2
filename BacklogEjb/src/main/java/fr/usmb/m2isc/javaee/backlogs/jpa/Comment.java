@@ -10,6 +10,12 @@ public class Comment implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
     private Entry entry;
+
+    private String content;
+
+    @ManyToOne
+    private User author;
+
+
 }
