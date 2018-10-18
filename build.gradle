@@ -7,7 +7,7 @@ subprojects {
 	apply plugin: 'idea'
 }
 
-project(':ColisEjb'){
+project(':BacklogEjb'){
 	eclipse.wtp.facet { 
 			    facet name: 'java', version: '1.7'
 	            //facet name: 'jst.cdi', version: '2.0'
@@ -16,7 +16,7 @@ project(':ColisEjb'){
 	}
 }
 
-project(':ColisWeb'){
+project(':BacklogWeb'){
 	eclipse.wtp.facet { 
 			    facet name: 'java', version: '1.7'
 	            //facet name: 'jst.cdi', version: '2.0'

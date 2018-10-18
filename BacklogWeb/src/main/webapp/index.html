@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Application de gestion de colis</title>
+	<link rel="stylesheet" type="text/css" href="asset/css/base.css" >
+	<script src="https://cdn.jsdelivr.net/npm/places.js@1.11.0"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <a href="//"><button>Ajouter un colis</button></a>
+        <a href="//DisplayAllColisServlet"><button>Visualiser les colis</button></a>
+    </div>
+	<div class="container">
+        <h1>Gestion des colis</h1>
+		<div>
+			<h2>Enregistrer un nouveau colis :</h2>
+			<form action="RegisterColisServlet" method="post">
+				<div>
+					<label>Identifiant</label>
+					<input type="text" name="identifiant"/>
+				</div>
+
+                <label>Poids</label>
+                    <input type="number" name="poid"/>
+                </div><div>
+
+
+                <div>
+					<label>Valeur</label>
+					<input type="text" name="name"/>
+				</div>
+
+				<div>
+					<label>Lieu de départ</label>
+					<input type="search" id="cityStart" placeholder="Ville" />
+                    <input type="hidden" id="start" name="origin"/>
+                    <input type="hidden" id="lat" name="lat"/>
+                    <input type="hidden" id="lng" name="lng"/>
+				</div>
+
+				<div>
+					<label>Lieu d'arrivé</label>
+					<input type="search" id="cityStop" placeholder="Ville"/>
+                    <input type="hidden" id="stop" name="destination"/>
+				</div>
+
+				<div>
+					<input type="submit" value="Envoyer"/>
+				</div>
+			</form>
+			<h2>Editer un nouveau colis</h2>
+			<form action="EditColisServlet">
+				<div>
+					<label>Identifiant</label>
+					<input type="text" name="identifiant">
+				</div>
+				<div>
+					<label>Localisation</label>
+					<input type="search" id="cityPosition" placeholder="Ville" name="localisation"/>
+                    <input type="hidden" id="latPos" name="lat"/>
+                    <input type="hidden" id="lngPos" name="lng"/>
+				</div>
+				<div>
+					<label >Emplacement</label>
+					<input type="text" name="emplacement">
+				</div>
+                <div>
+                    <label>Etat</label>
+                    <select name="state">
+                        <option value="REGISTERED">REGISTERED</option>
+                        <option value="ONGOING">ONGOING</option>
+                        <option value="PENDING">PENDING</option>
+                        <option value="DELIVERED">DELIVERED</option>
+                        <option value="BLOCKED">BLOCKED</option>
+                    </select>
+                </div>
+				<div>
+					<input type="submit" value="Envoyer">
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+<footer>
+	<script src="asset/js/places.js"></script>
+</footer>
+</html>
