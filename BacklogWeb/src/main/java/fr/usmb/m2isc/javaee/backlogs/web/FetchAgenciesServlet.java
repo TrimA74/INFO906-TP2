@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Servlet utilisee pour afficher un compte.
@@ -33,7 +34,7 @@ public class FetchAgenciesServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Agence agences = ejb.getAllAgence();
+        List<Agence> agences = ejb.getAllAgence();
 
         request.setAttribute("agences", agences);
 

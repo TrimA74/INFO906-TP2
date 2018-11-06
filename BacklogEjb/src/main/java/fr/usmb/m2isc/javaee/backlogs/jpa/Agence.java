@@ -22,5 +22,7 @@ public class Agence implements Serializable {
 
     private String name;
 
-
+    public Long getId() {
+        return id;
+    }
 }
