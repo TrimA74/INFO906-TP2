@@ -18,6 +18,7 @@ public class Backlog implements Serializable {
     @OneToMany
     private List<Entry> entries;
 
+    public Backlog(){
 
-
+    }
 }

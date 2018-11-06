@@ -1,6 +1,7 @@
 package fr.usmb.m2isc.javaee.backlogs.ejb;
 
 import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
+import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
 import fr.usmb.m2isc.javaee.backlogs.jpa.User;
 
 import javax.annotation.PostConstruct;
@@ -22,8 +23,12 @@ public class InitBean implements Init {
         User trima = new User("trima");
         em.persist(ludo);
         em.persist(trima);
-        Agence annecy = new Agence("Agence Annecy");
-        Agence chambery = new Agence("Agence Chambery");
+        Backlog annecyBacklog = new Backlog();
+        Backlog chamberyBacklog = new Backlog();
+        em.persist(annecyBacklog);
+        em.persist(chamberyBacklog);
+        Agence annecy = new Agence("Agence Annecy",annecyBacklog);
+        Agence chambery = new Agence("Agence Chambery",chamberyBacklog);
         em.persist(annecy);
         em.persist(chambery);
     }

@@ -9,8 +9,9 @@ public class Agence implements Serializable {
 
     }
 
-    public Agence(String name) {
+    public Agence(String name,Backlog backlog) {
         this.name = name;
+        this.backlog = backlog;
     }
 
     @Id
