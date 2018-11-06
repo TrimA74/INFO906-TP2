@@ -41,7 +41,7 @@ public class FetchBacklogServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int agency_id = Integer.parseInt(request.getParameter("agency_id"));
+        String agency_id = request.getParameter("agency_id");
 
         Agence a = ejb.getAgence(agency_id);
         Backlog b = ejb.getBacklog(a);

@@ -7,7 +7,11 @@ import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Compte;
 
 public interface Operation {
-    Agence getAgence(int agenceId);
-    Backlog getBacklog(Agence agence);
+
     List<Agence> getAllAgence();
+
+    Agence getAgence(String number);
+
+    Backlog getBacklog(Agence agence);
+
 }
