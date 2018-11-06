@@ -35,7 +35,7 @@ public class FetchAgenciesServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Agence> agences = ejb.getAllAgence();
-
+        
         request.setAttribute("agences", agences);
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);

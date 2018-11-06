@@ -22,20 +22,6 @@ public class OperationBean implements Operation {
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
-	public Agence getAgence(int agenceId) {
-		return null;
-	}
-
-	@Override
-	public Backlog getBacklog(Agence agence) {
-		return null;
-	}
-
-	@Override
-	public List<Agence> getAllAgence() {
-		return null;
-	}
 
 	public OperationBean() {
 

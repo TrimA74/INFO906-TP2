@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Application de gestion de colis</title>
+	<title>Application de gestion de gestion de backlog</title>
 	<link rel="stylesheet" type="text/css" href="asset/css/base.css" >
 </head>
 <body>
@@ -18,7 +18,7 @@
                 <div>
                     <label>Sélectionnez une agence</label>
                     <select name="agency_id">
-                        <c:forEach var="agence"  items="${listAgence}" >
+                        <c:forEach var="agence"  items="${agences}" >
                             <option value="${agence.id}">${agence.name}</option>
                         </c:forEach>
                     </select>
