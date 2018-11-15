@@ -23,6 +23,7 @@ public class OperationBean implements Operation {
 	@PersistenceContext
 	private EntityManager em;
 
+
 	public OperationBean() {
 
 	}

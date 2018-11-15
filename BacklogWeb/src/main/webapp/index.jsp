@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Application de gestion de colis</title>
+	<title>Application de gestion de gestion de backlog</title>
 	<link rel="stylesheet" type="text/css" href="asset/css/base.css" >
 </head>
 <body>
