@@ -18,7 +18,27 @@ public class Agence implements Serializable {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne()
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Backlog backlog;
 
     private String name;

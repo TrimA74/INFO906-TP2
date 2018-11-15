@@ -19,8 +19,8 @@ public class InitBean implements Init {
 
     @PostConstruct
     public void init() {
-        User ludo = new User("ludo");
-        User trima = new User("trima");
+        User ludo = new User("ludo","asticot");
+        User trima = new User("trima","asticot");
         em.persist(ludo);
         em.persist(trima);
         Backlog annecyBacklog = new Backlog();

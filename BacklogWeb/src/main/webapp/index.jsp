@@ -9,19 +9,27 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="//LoginServlet"><button>Se connecter</button></a>
+        <c:choose>
+            <c:when test="${currentUser == null}">
+                <a href="/BacklogWeb/LoginServlet"><button>Se connecter</button></a>
+            </c:when>
+            <c:otherwise>
+                <p>${sessionScope.currentUser.username} est connecté :)</p>
+            </c:otherwise>
+        </c:choose>
     </div>
 	<div class="container">
         <h1>Backlog des agences</h1>
 		<div>
-			<form action="FetchAgenciesServlet" method="post">
+			<form action="FetchBacklogServlet" method="post">
                 <div>
                     <label>Sélectionnez une agence</label>
                     <select name="agency_id">
-                        <c:forEach var="agence"  items="${listAgence}" >
+                        <c:forEach var="agence"  items="${sessionScope.listAgence}" >
                             <option value="${agence.id}">${agence.name}</option>
                         </c:forEach>
                     </select>
+                    <button type="submit">Voir le backlog</button>
                 </div>
 			</form>
 		</div>
