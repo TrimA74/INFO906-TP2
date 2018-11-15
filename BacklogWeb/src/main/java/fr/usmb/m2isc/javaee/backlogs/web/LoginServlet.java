@@ -27,8 +27,10 @@ public class LoginServlet extends HttpServlet {
         try{
             User u = ejb.signIn(username,password);
             HttpSession httpSession = req.getSession();
+            // storing the user and list of agencies on the session
             httpSession.setAttribute("currentUser",u);
             httpSession.setAttribute("listAgence",ejb.getAllAgence());
+
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } catch ( EJBException e){
             req.setAttribute("error", "Wrong Creditentials !");

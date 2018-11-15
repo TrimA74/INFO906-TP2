@@ -19,20 +19,22 @@
         </c:choose>
     </div>
 	<div class="container">
-        <h1>Backlog des agences</h1>
-		<div>
-			<form action="FetchBacklogServlet" method="post">
-                <div>
-                    <label>Sélectionnez une agence</label>
-                    <select name="agency_id">
-                        <c:forEach var="agence"  items="${sessionScope.listAgence}" >
-                            <option value="${agence.id}">${agence.name}</option>
-                        </c:forEach>
-                    </select>
-                    <button type="submit">Voir le backlog</button>
-                </div>
-			</form>
-		</div>
+        <h1>Application de gestion de backlog</h1>
+        <c:if test="${currentUser != null}">
+            <div>
+                <form action="FetchBacklogServlet" method="post">
+                    <div>
+                        <label>Sélectionnez une agence</label>
+                        <select name="agency_id">
+                            <c:forEach var="agence"  items="${sessionScope.listAgence}" >
+                                <option value="${agence.id}">${agence.name}</option>
+                            </c:forEach>
+                        </select>
+                        <button type="submit">Voir le backlog</button>
+                    </div>
+                </form>
+            </div>
+        </c:if>
 	</div>
 
 </body>
