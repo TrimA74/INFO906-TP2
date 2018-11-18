@@ -17,7 +17,7 @@ import java.util.List;
  * Servlet utilisee pour afficher un compte.
  */
 @WebServlet("/FetchAgenciesServlet")
-public class FetchAgenciesServlet {
+public class FetchAgenciesServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @EJB

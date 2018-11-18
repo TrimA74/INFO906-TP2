@@ -15,6 +15,15 @@ public class Entry implements Serializable {
     @ManyToOne
     private Backlog backlog;
 
+    public Entry(Date creation, String name, int priority, int estimation, String description, Backlog b) {
+        this.creation = creation;
+        this.name = name;
+        this.priority = priority;
+        this.estimation = estimation;
+        this.description = description;
+        this.backlog = b;
+    }
+
     @OneToMany
     private List<Comment> comments;
 

@@ -47,6 +47,37 @@
                 </div>
             </c:if>
         </div>
+        <c:if test="${backlog != null}">
+            <div class="column col-6 p-centered">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Identifiant</th>
+                        <th>Nom</th>
+                        <th>Date de création</th>
+                        <th>Priorité</th>
+                        <th>Estimation</th>
+                        <th>Descriptions</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="entry"  items="${backlog.entries}" >
+                        <tr class="active">
+                            <td>${entry.id}</td>
+                            <td>${entry.name}</td>
+                            <td>${entry.creation}</td>
+                            <td>${entry.priority}</td>
+                            <td>${entry.estimation}</td>
+                            <td>${entry.description}</td>
+                            <td><button class="btn btn-primary">Voir les commentaires</button></td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </c:if>
+
     </div>
 </section>
 

@@ -17,7 +17,7 @@ import java.io.IOException;
  * Servlet utilisee pour afficher un compte.
  */
 @WebServlet("/FetchBacklogServlet")
-public class FetchBacklogServlet {
+public class FetchBacklogServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @EJB
@@ -35,6 +35,7 @@ public class FetchBacklogServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
     }
 
     /**
@@ -44,8 +45,7 @@ public class FetchBacklogServlet {
         String agency_id = request.getParameter("agency_id");
 
         Agence a = ejb.getAgence(agency_id);
-        Backlog b = ejb.getBacklog(a);
-
+        Backlog b = a.getBacklog();
         request.setAttribute("backlog", b);
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);

@@ -21,4 +21,8 @@ public class Backlog implements Serializable {
     public Backlog(){
 
     }
+
+    public void addEntry(Entry e){
+        this.entries.add(e);
+    }
 }
