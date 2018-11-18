@@ -6,3 +6,15 @@ th, td, tr {border: thin solid black; padding: 0.5em; }
 tr:nth-child(even) {background-color: #f2f2f2;}
 td:nth-child(2){text-align: right; width: 10em }
 thead th, thead tr { border: medium solid black; font-weight: bold;}
+
+.login {
+    width: 100%;
+    length: 100%;
+    padding: 4.5rem 0rem;
+}
+.button {
+    margin: 1rem 0rem;
+}
+.main {
+    padding: 4.5rem 0rem;
+}
