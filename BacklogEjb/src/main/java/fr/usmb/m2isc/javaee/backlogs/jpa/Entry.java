@@ -12,16 +12,40 @@ public class Entry implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
-    private Backlog backlog;
+    public List<Comment> getComments() {
+        return comments;
+    }
 
-    public Entry(Date creation, String name, int priority, int estimation, String description, Backlog b) {
+    public Date getCreation() {
+        return creation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public int getEstimation() {
+        return estimation;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Entry(Date creation, String name, int priority, int estimation, String description) {
         this.creation = creation;
         this.name = name;
         this.priority = priority;
         this.estimation = estimation;
         this.description = description;
-        this.backlog = b;
     }
 
     @OneToMany

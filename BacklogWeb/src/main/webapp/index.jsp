@@ -47,7 +47,7 @@
                 </div>
             </c:if>
         </div>
-        <c:if test="${backlog != null}">
+        <c:if test="${entries != null}">
             <div class="column col-6 p-centered">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -62,7 +62,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="entry"  items="${backlog.entries}" >
+                    <c:forEach var="entry"  items="${entries}" >
                         <tr class="active">
                             <td>${entry.id}</td>
                             <td>${entry.name}</td>

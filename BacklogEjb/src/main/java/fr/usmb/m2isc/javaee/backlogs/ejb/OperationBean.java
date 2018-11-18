@@ -45,7 +45,7 @@ public class OperationBean implements Operation {
 
     @Override
     public Agence getAgence(String number) {
-        return em.find(Agence.class, number);
+        return em.find(Agence.class, Long.parseLong(number));
     }
 
 

@@ -4,6 +4,7 @@ package fr.usmb.m2isc.javaee.backlogs.web;
 import fr.usmb.m2isc.javaee.backlogs.ejb.Operation;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
+import fr.usmb.m2isc.javaee.backlogs.jpa.Entry;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Servlet utilisee pour afficher un compte.
@@ -45,8 +47,9 @@ public class FetchBacklogServlet extends HttpServlet {
         String agency_id = request.getParameter("agency_id");
 
         Agence a = ejb.getAgence(agency_id);
-        Backlog b = a.getBacklog();
-        request.setAttribute("backlog", b);
+        Backlog b  = a.getBacklog();
+        List<Entry> entries = b.getEntries();
+        request.setAttribute("entries", entries);
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
