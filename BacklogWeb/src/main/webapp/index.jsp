@@ -22,7 +22,7 @@
                 <a href="/BacklogWeb/LoginServlet" class="btn btn-success">Sign In</a>
             </c:when>
             <c:otherwise>
-                <a href="" class="btn btn-link"><i class="icon icon-2x icon-people"></i>   ${sessionScope.currentUser.username}</a>
+                <a href="" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 1rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
             </c:otherwise>
         </c:choose>
     </section>
