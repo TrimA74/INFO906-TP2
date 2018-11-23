@@ -1,6 +1,5 @@
 package fr.usmb.m2isc.javaee.backlogs.web;
 
-
 import fr.usmb.m2isc.javaee.backlogs.ejb.Operation;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
@@ -15,11 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Servlet utilisee pour afficher un compte.
- */
-@WebServlet("/FetchBacklogServlet")
-public class FetchBacklogServlet extends HttpServlet {
+@WebServlet("/AddNewBacklogServlet")
+public class AddNewBacklogServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @EJB
@@ -28,7 +24,7 @@ public class FetchBacklogServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FetchBacklogServlet() {
+    public AddNewBacklogServlet() {
         super();
     }
 
@@ -36,7 +32,11 @@ public class FetchBacklogServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String backlog_id = request.getParameter("backlog_id");
 
+        request.setAttribute("backlog_id", backlog_id);
+
+        request.getRequestDispatcher("/add_backlog.jsp").forward(request, response);
 
     }
 
@@ -44,14 +44,12 @@ public class FetchBacklogServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String agency_id = request.getParameter("agency_id");
+        String backlog_id = request.getParameter("backlog_id");
 
-        Agence a = ejb.getAgence(agency_id);
-        Backlog b  = a.getBacklog();
-        List<Entry> entries = b.getEntries();
-        request.setAttribute("entries", entries);
-        request.setAttribute("backlog_id", b.getId());
+        request.setAttribute("backlog_id", backlog_id);
 
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.setAttribute("error", null);
+
+        request.getRequestDispatcher("/add_backlog.jsp").forward(request, response);
     }
 }

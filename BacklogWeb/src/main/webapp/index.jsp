@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="asset/css/spectre.min.css">
     <link rel="stylesheet" type="text/css" href="asset/css/spectre-exp.min.css">
     <link rel="stylesheet" type="text/css" href="asset/css/spectre-icons.min.css">
+    <link rel="icon" href="favicon.ico" />
 </head>
 <body>
 <header class="navbar" style="padding: 1rem; box-shadow: 2px 2px 2px lightgrey;">
@@ -48,7 +49,11 @@
             </c:if>
         </div>
         <c:if test="${entries != null}">
-            <div class="column col-6 p-centered">
+            <div class="column col-6 p-centered margin-top-30">
+                <form action="AddNewBacklogServlet" method="get">
+                    <input type="hidden" name="backlogId" value="${backlog_id}">
+                    <button class="btn btn-primary">Ajouter</button>
+                </form>
                 <table class="table table-striped table-hover">
                     <thead>
                     <tr>

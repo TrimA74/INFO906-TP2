@@ -17,4 +17,5 @@ public interface Operation {
 
     User signIn(String username, String password);
 
+    Backlog getBacklogById(Long id);
 }

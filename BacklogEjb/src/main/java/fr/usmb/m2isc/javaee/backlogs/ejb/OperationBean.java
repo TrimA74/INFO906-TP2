@@ -44,6 +44,11 @@ public class OperationBean implements Operation {
     }
 
     @Override
+    public Backlog getBacklogById(Long id) {
+        return em.find(Backlog.class,id);
+    }
+
+    @Override
     public Agence getAgence(String number) {
         return em.find(Agence.class, Long.parseLong(number));
     }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="asset/css/spectre.min.css">
     <link rel="stylesheet" type="text/css" href="asset/css/spectre-exp.min.css">
     <link rel="stylesheet" type="text/css" href="asset/css/spectre-icons.min.css">
+    <link rel="icon" href="favicon.ico" />
 </head>
 <body>
 
