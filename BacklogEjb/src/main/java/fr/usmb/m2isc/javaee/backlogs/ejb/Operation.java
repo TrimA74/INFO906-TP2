@@ -17,4 +17,8 @@ public interface Operation {
     Backlog getBacklogById(Long id);
 
     Backlog addEntryToBacklog(Entry entry, Long backlog_id);
+
+    Entry getEntry(Long id);
+
+    void deleteEntry(Long id, Long backlog_id);
 }

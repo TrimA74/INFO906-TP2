@@ -1,5 +1,6 @@
 package fr.usmb.m2isc.javaee.backlogs.ejb;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.DependsOn;
@@ -62,5 +63,26 @@ public class OperationBean implements Operation {
     @Override
     public Backlog getBacklog(Agence agence) {
         return em.find(Backlog.class, agence.getId());
+    }
+
+    @Override
+    public Entry getEntry(Long id) { return em.find(Entry.class, id); }
+
+    @Override
+    public void deleteEntry(Long id, Long backlog_id) {
+	    Entry e = getEntry(id);
+        Backlog backlog = this.getBacklogById(backlog_id);
+
+        for(Iterator<Entry> iter = backlog.getEntries().listIterator(); iter.hasNext();) {
+            Entry entry = iter.next();
+
+            if(entry.getId().equals(e.getId())) {
+                iter.remove();
+            }
+        }
+
+	    if(e != null) {
+	        em.remove(e);
+        }
     }
 }

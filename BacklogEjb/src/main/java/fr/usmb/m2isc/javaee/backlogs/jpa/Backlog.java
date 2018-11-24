@@ -16,7 +16,7 @@ public class Backlog implements Serializable {
     @OneToOne( mappedBy = "backlog")
     private Agence agence;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private List<Entry> entries;
 
     public Long getId() {

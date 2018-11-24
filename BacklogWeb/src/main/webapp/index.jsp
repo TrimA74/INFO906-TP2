@@ -75,7 +75,14 @@
                             <td>${entry.priority}</td>
                             <td>${entry.estimation}</td>
                             <td>${entry.description}</td>
-                            <td><button class="btn btn-primary">Voir les commentaires</button></td>
+                            <td>
+                                <button class="btn btn-primary">Voir les commentaires</button>
+                                <form action="DeleteBacklogEntryServlet" method="get">
+                                    <input type="hidden" name="backlog_id" value="${backlog_id}">
+                                    <input type="hidden" name="entry_id" value="${entry.id}">
+                                    <button class="btn btn-primary">Supprimer</button>
+                                </form>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

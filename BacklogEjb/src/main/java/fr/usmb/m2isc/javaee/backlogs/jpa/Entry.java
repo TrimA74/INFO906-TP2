@@ -48,7 +48,7 @@ public class Entry implements Serializable {
         this.description = description;
     }
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<Comment> comments;
 
 
