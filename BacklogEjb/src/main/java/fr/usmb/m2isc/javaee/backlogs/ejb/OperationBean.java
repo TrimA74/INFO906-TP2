@@ -85,4 +85,14 @@ public class OperationBean implements Operation {
 	        em.remove(e);
         }
     }
+
+    @Override
+    public void updateEntry(Long entry_id, String name, String description, int priority, int estimation) {
+        Entry e = em.find(Entry.class, entry_id);
+
+        e.setName(name);
+        e.setPriority(priority);
+        e.setEstimation(estimation);
+        e.setDescription(description);
+    }
 }

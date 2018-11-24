@@ -82,6 +82,10 @@
                                     <input type="hidden" name="entry_id" value="${entry.id}">
                                     <button class="btn btn-primary">Supprimer</button>
                                 </form>
+                                <form action="ModifyBacklogEntryServlet" method="get">
+                                    <input type="hidden" name="entry_id" value="${entry.id}">
+                                    <button class="btn btn-primary">Modifier</button>
+                                </form>
                             </td>
                         </tr>
                     </c:forEach>

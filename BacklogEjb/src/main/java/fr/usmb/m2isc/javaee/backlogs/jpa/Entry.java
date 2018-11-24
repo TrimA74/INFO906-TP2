@@ -67,4 +67,19 @@ public class Entry implements Serializable {
 
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public void setEstimation(int estimation) {
+        this.estimation = estimation;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
