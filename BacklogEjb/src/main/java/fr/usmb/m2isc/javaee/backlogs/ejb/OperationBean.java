@@ -95,4 +95,12 @@ public class OperationBean implements Operation {
         e.setEstimation(estimation);
         e.setDescription(description);
     }
+
+    @Override
+    public void createAgency(String name) {
+	    Backlog b = new Backlog();
+        em.persist(b);
+	    Agence a = new Agence(name, b);
+        em.persist(a);
+    }
 }

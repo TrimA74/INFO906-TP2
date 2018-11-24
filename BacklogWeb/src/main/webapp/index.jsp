@@ -15,7 +15,7 @@
 <header class="navbar" style="padding: 1rem; box-shadow: 2px 2px 2px lightgrey;">
     <!-- Logo, here on the left -->
     <section class="navbar-primary">
-        <a href="#" class="navbar-brand"><span class="text-large">Application de gestion de gestion de backlog</span></a>
+            <a href="#" class="navbar-brand"><span class="text-large">Application de gestion de gestion de backlog</span></a>
     </section>
     <section class="navbar-section">
         <c:choose>
@@ -33,6 +33,14 @@
         <div class="column col-4 p-centered">
             <h1>Application de gestion de backlog</h1>
             <c:if test="${currentUser != null}">
+                <div>
+                    <form action="CreateAgencyServlet" method="post">
+                        <label class="form-label" for="name">Name</label>
+                        <input class="form-input" name="name" type="text" id="name" placeholder="Name">
+
+                        <button type="submit" class="btn btn-primary button">Ajouter une agence</button>
+                    </form>
+                </div>
                 <div>
                     <form action="FetchBacklogServlet" method="post">
                         <div class="form-group">

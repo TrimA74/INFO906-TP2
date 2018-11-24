@@ -23,4 +23,6 @@ public interface Operation {
     void deleteEntry(Long id, Long backlog_id);
 
     void updateEntry(Long entry_id, String name, String description, int priority, int estimation);
+
+    void createAgency(String name);
 }
