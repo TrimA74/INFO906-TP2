@@ -51,7 +51,7 @@
         <c:if test="${entries != null}">
             <div class="column col-6 p-centered margin-top-30">
                 <form action="AddNewBacklogServlet" method="get">
-                    <input type="hidden" name="backlogId" value="${backlog_id}">
+                    <input type="hidden" name="backlog_id" value="${backlog_id}">
                     <button class="btn btn-primary">Ajouter</button>
                 </form>
                 <table class="table table-striped table-hover">

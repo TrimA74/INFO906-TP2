@@ -10,10 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Compte;
-import fr.usmb.m2isc.javaee.backlogs.jpa.User;
+import fr.usmb.m2isc.javaee.backlogs.jpa.*;
 
 @Stateless
 @Remote
@@ -46,6 +43,14 @@ public class OperationBean implements Operation {
     @Override
     public Backlog getBacklogById(Long id) {
         return em.find(Backlog.class,id);
+    }
+
+    @Override
+    public Backlog addEntryToBacklog(Entry entry, Long backlog_id) {
+        Backlog backlog = this.getBacklogById(backlog_id);
+        backlog.addEntry(entry);
+        em.persist(entry);
+        return backlog;
     }
 
     @Override

@@ -2,10 +2,7 @@ package fr.usmb.m2isc.javaee.backlogs.ejb;
 
 import java.util.List;
 
-import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Compte;
-import fr.usmb.m2isc.javaee.backlogs.jpa.User;
+import fr.usmb.m2isc.javaee.backlogs.jpa.*;
 
 public interface Operation {
 
@@ -18,4 +15,6 @@ public interface Operation {
     User signIn(String username, String password);
 
     Backlog getBacklogById(Long id);
+
+    Backlog addEntryToBacklog(Entry entry, Long backlog_id);
 }

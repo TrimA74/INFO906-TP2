@@ -32,14 +32,15 @@
             <!-- form input control -->
             <div class="form-group">
                 <form action="AddNewBacklogServlet" method="post">
-                    <label class="form-label" for="username">Name</label>
-                    <input class="form-input" name="username" type="text" id="username" placeholder="Name">
-                    <label class="form-label" for="priority">Priorité</label>
-                    <input class="form-input" id="priority" type="number">
+                    <input type="hidden" name="backlog_id" value="${backlog_id}">
+                    <label class="form-label" for="name">Name</label>
+                    <input class="form-input" name="name" type="text" id="name" placeholder="Name">
+                    <label class="form-label" for="priority" >Priorité</label>
+                    <input class="form-input" id="priority" name="priority" type="number">
                     <label class="form-label" for="estimation">Estimation</label>
-                    <input class="form-input" id="estimation" type="number">
+                    <input class="form-input" id="estimation" name="estimation" type="number">
                     <label class="form-label" for="textarea">Description</label>
-                    <textarea class="form-input" id="textarea" placeholder="Textarea" rows="3"></textarea>
+                    <textarea class="form-input" id="textarea" name="description" placeholder="Textarea" rows="3"></textarea>
                     <button class="btn btn-primary button" type="submit">Ajouter</button>
                 </form>
             </div>

@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet("/AddNewBacklogServlet")
@@ -31,25 +34,40 @@ public class AddNewBacklogServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String backlog_id = request.getParameter("backlog_id");
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        String backlog_id = req.getParameter("backlog_id");
 
-        request.setAttribute("backlog_id", backlog_id);
+        req.setAttribute("backlog_id", backlog_id);
 
-        request.getRequestDispatcher("/add_backlog.jsp").forward(request, response);
+        req.setAttribute("error", null);
+
+        req.getRequestDispatcher("/add_backlog.jsp").forward(req, res);
 
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String backlog_id = request.getParameter("backlog_id");
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        request.setAttribute("backlog_id", backlog_id);
 
-        request.setAttribute("error", null);
+        Long backlog_id = Long.parseLong(req.getParameter("backlog_id"));
+        String name = req.getParameter("name");
+        String description = req.getParameter("description");
+        int priority = Integer.parseInt(req.getParameter("priority"));
+        int estimation = Integer.parseInt(req.getParameter("estimation"));
 
-        request.getRequestDispatcher("/add_backlog.jsp").forward(request, response);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        Entry entry = new Entry(date,name,priority,estimation,description);
+
+        Backlog backlog = ejb.addEntryToBacklog(entry,backlog_id);
+
+
+        req.setAttribute("entries", backlog.getEntries());
+        req.setAttribute("backlog_id", backlog_id);
+
+
+        req.getRequestDispatcher("/index.jsp").forward(req, res);
     }
 }
