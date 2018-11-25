@@ -14,6 +14,44 @@ public class Comment implements Serializable {
 
     private String content;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Entry getEntry() {
+        return entry;
+    }
+
+    public void setEntry(Entry entry) {
+        this.entry = entry;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Comment(Entry entry, String content, User author) {
+        this.entry = entry;
+        this.content = content;
+        this.author = author;
+    }
+
     @ManyToOne
     private User author;
 

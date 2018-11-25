@@ -1,9 +1,6 @@
 package fr.usmb.m2isc.javaee.backlogs.ejb;
 
-import fr.usmb.m2isc.javaee.backlogs.jpa.Agence;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
-import fr.usmb.m2isc.javaee.backlogs.jpa.Entry;
-import fr.usmb.m2isc.javaee.backlogs.jpa.User;
+import fr.usmb.m2isc.javaee.backlogs.jpa.*;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -57,6 +54,14 @@ public class InitBean implements Init {
             Agence chambery = new Agence("Agence Chambery",chamberyBacklog);
             em.persist(annecy);
             em.persist(chambery);
+
+            Comment comment1 = new Comment(entry1,"besoin d'aide",trima);
+            Comment comment2 = new Comment(entry1,"tu te débrouille",ludo);
+            Comment comment3 = new Comment(entry2,"j'ai bientôt finit :)",ludo);
+            em.persist(comment1);
+            em.persist(comment2);
+            em.persist(comment3);
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
