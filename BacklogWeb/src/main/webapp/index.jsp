@@ -23,7 +23,10 @@
                 <a href="/BacklogWeb/LoginServlet" class="btn btn-success">Sign In</a>
             </c:when>
             <c:otherwise>
-                <a href="/BacklogWeb" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 1rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
+                <a href="/BacklogWeb" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 0.5rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
+                <form class="m-0" action="LogoutServlet" method="post">
+                    <button class="btn btn-link"><i class="icon icon-2x icon-shutdown"></i></button>
+                </form>
             </c:otherwise>
         </c:choose>
     </section>

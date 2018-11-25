@@ -109,4 +109,18 @@ public class OperationBean implements Operation {
 	    Entry entry = em.find(Entry.class,entry_id);
 	    return entry.getComments();
     }
+
+    @Override
+    public Entry addCommentToEntry(Comment comment, Long entry_id) {
+
+        Entry entry = this.getEntryById(entry_id);
+        entry.addComment(comment);
+        em.persist(comment);
+        return entry;
+    }
+
+    @Override
+    public Entry getEntryById(Long entry_id) {
+        return em.find(Entry.class,entry_id);
+    }
 }

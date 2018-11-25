@@ -27,4 +27,8 @@ public interface Operation {
     void createAgency(String name);
 
     List<Comment> getCommentsByEntryId(Long entry_id);
+
+    Entry addCommentToEntry(Comment comment, Long entry_id);
+
+    Entry getEntryById(Long entry_id);
 }

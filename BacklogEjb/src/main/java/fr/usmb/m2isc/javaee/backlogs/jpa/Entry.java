@@ -87,4 +87,8 @@ public class Entry implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void addComment(Comment comment){
+        this.comments.add(comment);
+    }
 }
