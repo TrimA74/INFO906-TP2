@@ -15,7 +15,7 @@
 <header class="navbar" style="padding: 1rem; box-shadow: 2px 2px 2px lightgrey;">
     <!-- Logo, here on the left -->
     <section class="navbar-primary">
-            <a href="#" class="navbar-brand"><span class="text-large">Application de gestion de gestion de backlog</span></a>
+            <a href="/BacklogWeb" class="navbar-brand"><img src="asset/img/favicon-256.png" width="32" height="32" alt=""></a>
     </section>
     <section class="navbar-section">
         <c:choose>
@@ -23,15 +23,15 @@
                 <a href="/BacklogWeb/LoginServlet" class="btn btn-success">Sign In</a>
             </c:when>
             <c:otherwise>
-                <a href="" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 1rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
+                <a href="/BacklogWeb" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 1rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
             </c:otherwise>
         </c:choose>
     </section>
 </header>
 <section class="main grid-lg">
     <div class="container">
-        <div class="column col-4 p-centered">
-            <h1>Application de gestion de backlog</h1>
+        <div class="column col-6 p-centered">
+            <h1 class="text-center">Application de gestion de backlog</h1>
             <c:if test="${currentUser != null}">
                 <div>
                     <form action="CreateAgencyServlet" method="post">
@@ -56,52 +56,61 @@
                 </div>
             </c:if>
         </div>
-        <c:if test="${entries != null}">
-            <div class="column col-6 p-centered margin-top-30">
-                <form action="AddNewBacklogServlet" method="get">
-                    <input type="hidden" name="backlog_id" value="${backlog_id}">
-                    <button class="btn btn-primary">Ajouter</button>
-                </form>
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th>Identifiant</th>
-                        <th>Nom</th>
-                        <th>Date de création</th>
-                        <th>Priorité</th>
-                        <th>Estimation</th>
-                        <th>Descriptions</th>
-                        <th>Actions</th>
+        <div class="column col-6 p-centered">
+            <c:if test="${notification_success == true}">
+                <div class="toast toast-success">
+                    <button class="btn btn-clear float-right"></button>
+                        ${message}
+                </div>
+            </c:if>
+        </div>
+        <div class="column col-10 p-centered margin-top-30">
+            <c:if test="${entries != null}">
+            <form action="AddNewBacklogServlet" method="get">
+                <input type="hidden" name="backlog_id" value="${backlog_id}">
+                <button class="btn btn-primary"><i class="icon icon-plus"></i></button>
+            </form>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Date de création</th>
+                    <th>Priorité</th>
+                    <th>Estimation</th>
+                    <th>Descriptions</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="entry"  items="${entries}" >
+                    <tr class="active">
+                        <td>${entry.id}</td>
+                        <td>${entry.name}</td>
+                        <td>${entry.creation}</td>
+                        <td>${entry.priority}</td>
+                        <td>${entry.estimation}</td>
+                        <td>${entry.description}</td>
+                        <td>
+                            <form class="d-inline-block" action="DeleteBacklogEntryServlet" method="get">
+                                <button class="btn btn-primary"><i class="icon icon-message"></i></button>
+                            </form>
+                            <form class="d-inline-block" action="ModifyBacklogEntryServlet" method="get">
+                                <input type="hidden" name="entry_id" value="${entry.id}">
+                                <button class="btn btn-primary"><i class="icon icon-edit"></i></button>
+                            </form>
+                            <form class="d-inline-block" action="DeleteBacklogEntryServlet" method="get">
+                                <input type="hidden" name="backlog_id" value="${backlog_id}">
+                                <input type="hidden" name="entry_id" value="${entry.id}">
+                                <button class="btn btn-primary"><i class="icon icon-delete"></i></button>
+                            </form>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="entry"  items="${entries}" >
-                        <tr class="active">
-                            <td>${entry.id}</td>
-                            <td>${entry.name}</td>
-                            <td>${entry.creation}</td>
-                            <td>${entry.priority}</td>
-                            <td>${entry.estimation}</td>
-                            <td>${entry.description}</td>
-                            <td>
-                                <button class="btn btn-primary">Voir les commentaires</button>
-                                <form action="DeleteBacklogEntryServlet" method="get">
-                                    <input type="hidden" name="backlog_id" value="${backlog_id}">
-                                    <input type="hidden" name="entry_id" value="${entry.id}">
-                                    <button class="btn btn-primary">Supprimer</button>
-                                </form>
-                                <form action="ModifyBacklogEntryServlet" method="get">
-                                    <input type="hidden" name="entry_id" value="${entry.id}">
-                                    <button class="btn btn-primary">Modifier</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </c:if>
-
+                </c:forEach>
+                </tbody>
+            </table>
+            </c:if>
+        </div>
     </div>
 </section>
 

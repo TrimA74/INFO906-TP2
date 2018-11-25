@@ -40,6 +40,14 @@ public class DeleteBacklogEntryServlet extends HttpServlet {
 
         ejb.deleteEntry(entry_id, backlog_id);
 
+        Backlog backlog = ejb.getBacklogById(backlog_id);
+
+        String message = "L'entrée " + entry_id + " a bien été supprimée.";
+        request.setAttribute("notification_success",true);
+        request.setAttribute("message",message);
+        request.setAttribute("entries",backlog.getEntries());
+        request.setAttribute("backlog_id",backlog_id);
+
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 

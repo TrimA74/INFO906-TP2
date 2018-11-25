@@ -1,6 +1,7 @@
 package fr.usmb.m2isc.javaee.backlogs.web;
 
 import fr.usmb.m2isc.javaee.backlogs.ejb.Operation;
+import fr.usmb.m2isc.javaee.backlogs.jpa.Backlog;
 import fr.usmb.m2isc.javaee.backlogs.jpa.Entry;
 
 import javax.ejb.EJB;
@@ -51,6 +52,12 @@ public class ModifyBacklogEntryServlet extends HttpServlet {
         String descriptif = request.getParameter("descriptif");
 
         ejb.updateEntry(entry_id, name, descriptif, priority, estimation);
+
+
+        String message = "Entry n°"+ entry_id +" has been updated.";
+
+        request.setAttribute("notification_success",true);
+        request.setAttribute("message",message);
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
