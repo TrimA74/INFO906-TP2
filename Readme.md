@@ -1,15 +1,18 @@
-# Un exemple minimaliste d'une application JavaEE 7
+# TP2 : Application de gestion de backlog
 
-Pour faire simple l'application consiste à gérer l'acheminement de colis par une importante société dans le transport (très simplifiés).
-
+Pour faire simple l'application consiste à gérer les backlog associés à divers agences.
 
 On peut :
-- créer des colis
-- visualiser tous les colis
-- visualiser un colis
-- editer un colis
+- se connecter 
+- se déconnecter
+- créer une agence/backlog
+- visualiser toutes les entrées d'un backlog 
+- ajouter/modifier/supprimer une entrée au backlog
+- visualiser/ajouter des commantires sur une entrée
 
-
+Des utlisateurs sont créér au lancement de l'application : 
+- Username : `trima`, password: `trima`
+- Username : `ludo`, password: `ludo`
 ## Getting started
 ### Démarrer la BDD Glassfish 
 Dans le dossier où se trouve Glassfish
@@ -25,17 +28,12 @@ Utiliser l'artéfact `ColisEar.ear`
 ## Usage :
 Ce projet est un fork de `exemplescomptes` donc il fonctionne de la même manière
 
-## Documentation :
+## Technologies :
+- `java 1.7`
+- `jst.jpa 2.1`
+- `jst.ejb 3.1`
+- `jst.web 3.1`
+- `Glasshfish 5.0`
+- `Spectre.css 0.5.5`
 
-JavaEE 7
-- Doc : http://docs.oracle.com/javaee/7
-- Tutoriel : https://docs.oracle.com/javaee/7/tutorial
-- API (javadoc) : http://docs.oracle.com/javaee/7/api
-- Spécifications : https://www.oracle.com/technetwork/java/javaee/tech/index-jsp-142185.html
-
-JaveEE 8
-- Doc : https://javaee.github.io/glassfish/documentation
-- Tutoriel : https://javaee.github.io/tutorial/
-- API (javadodc : https://javaee.github.io/javaee-spec/javadocs/
-- Spécifications : https://www.oracle.com/technetwork/java/javaee/tech/java-ee-8-3890673.html
 
