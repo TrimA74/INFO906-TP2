@@ -49,9 +49,9 @@ public class ModifyBacklogEntryServlet extends HttpServlet {
         String name = request.getParameter("name");
         int estimation = Integer.parseInt(request.getParameter("estimation"));
         int priority = Integer.parseInt(request.getParameter("priority"));
-        String descriptif = request.getParameter("descriptif");
+        String description = request.getParameter("description");
 
-        ejb.updateEntry(entry_id, name, descriptif, priority, estimation);
+        ejb.updateEntry(entry_id, name, description, priority, estimation);
 
 
         String message = "Entry n°"+ entry_id +" has been updated.";

@@ -23,7 +23,7 @@
                 <a href="/BacklogWeb/LoginServlet" class="btn btn-success">Sign In</a>
             </c:when>
             <c:otherwise>
-                <a href="/BacklogWeb" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 0.5rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
+                <a href="/BacklogWeb" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large text-capitalize" style="margin-left: 0.5rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
                 <form class="m-0" action="LogoutServlet" method="post">
                     <button class="btn btn-link"><i class="icon icon-2x icon-shutdown"></i></button>
                 </form>
@@ -33,6 +33,14 @@
 </header>
 <section class="main grid-lg">
     <div class="container">
+        <div class="column col-6 p-centered margin-bottom-30">
+            <c:if test="${global_notification_success == true}">
+                <div class="toast toast-success">
+                    <button class="btn btn-clear float-right" onclick="document.getElementsByClassName('toast-success')[0].style.display='none';"></button>
+                        ${message}
+                </div>
+            </c:if>
+        </div>
         <div class="column col-6 p-centered">
             <h1 class="text-center">Application de gestion de backlog</h1>
             <c:if test="${currentUser != null}">
@@ -62,7 +70,7 @@
         <div class="column col-6 p-centered">
             <c:if test="${notification_success == true}">
                 <div class="toast toast-success">
-                    <button class="btn btn-clear float-right"></button>
+                    <button class="btn btn-clear float-right" onclick="document.getElementsByClassName('toast-success')[0].style.display='none';"></button>
                         ${message}
                 </div>
             </c:if>
@@ -106,7 +114,7 @@
                             <form class="d-inline-block" action="DeleteBacklogEntryServlet" method="get">
                                 <input type="hidden" name="backlog_id" value="${backlog_id}">
                                 <input type="hidden" name="entry_id" value="${entry.id}">
-                                <button class="btn btn-primary"><i class="icon icon-delete"></i></button>
+                                <button class="btn btn-primary" onclick="return window.confirm('Êtes-vous sûr de vouloir supprimer cette entrée ?');"><i class="icon icon-delete"></i></button>
                             </form>
                         </td>
                     </tr>
