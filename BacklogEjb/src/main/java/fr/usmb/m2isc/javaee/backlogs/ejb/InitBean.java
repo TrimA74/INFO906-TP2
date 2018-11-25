@@ -32,10 +32,26 @@ public class InitBean implements Init {
         try {
             Backlog annecyBacklog = new Backlog();
             Backlog chamberyBacklog = new Backlog();
+
             Entry entry1 = new Entry(simpleDateFormat.parse("25/12/2010"),"Visualiser une carte",45,2,"Pourvoir visualiser la liste des magasins");
             Entry entry2 = new Entry(simpleDateFormat.parse("25/12/2012"),"Ajouter un item",45,2,"Ajouter une item dans le panier");
             Entry entry3 = new Entry(simpleDateFormat.parse("25/12/2019"),"Vider le panier",45,2,"Vider le panier");
             Entry entry4 = new Entry(simpleDateFormat.parse("26/08/2019"),"Manger un pandoro",45,2,"Miam");
+            ArrayList<Comment> commentsEntry1 = new ArrayList<Comment>();
+            ArrayList<Comment> commentsEntry2 = new ArrayList<Comment>();
+            Comment comment1 = new Comment("besoin d'aide",trima);
+            Comment comment2 = new Comment("tu te débrouille",ludo);
+            Comment comment3 = new Comment("j'ai bientôt finit :)",ludo);
+            commentsEntry1.add(comment1);
+            commentsEntry1.add(comment2);
+            commentsEntry2.add(comment3);
+            em.persist(comment1);
+            em.persist(comment2);
+            em.persist(comment3);
+
+            entry1.setComments(commentsEntry1);
+            entry2.setComments(commentsEntry2);
+
             ArrayList<Entry> entriesAnnecy = new ArrayList<Entry>();
             ArrayList<Entry> entriesChambe = new ArrayList<Entry>();
             entriesAnnecy.add(entry1);
@@ -44,6 +60,7 @@ public class InitBean implements Init {
             entriesChambe.add(entry4);
             annecyBacklog.setEntries(entriesAnnecy);
             chamberyBacklog.setEntries(entriesChambe);
+
             em.persist(annecyBacklog);
             em.persist(chamberyBacklog);
             em.persist(entry1);
@@ -55,12 +72,7 @@ public class InitBean implements Init {
             em.persist(annecy);
             em.persist(chambery);
 
-            Comment comment1 = new Comment(entry1,"besoin d'aide",trima);
-            Comment comment2 = new Comment(entry1,"tu te débrouille",ludo);
-            Comment comment3 = new Comment(entry2,"j'ai bientôt finit :)",ludo);
-            em.persist(comment1);
-            em.persist(comment2);
-            em.persist(comment3);
+
 
         } catch (ParseException e) {
             e.printStackTrace();

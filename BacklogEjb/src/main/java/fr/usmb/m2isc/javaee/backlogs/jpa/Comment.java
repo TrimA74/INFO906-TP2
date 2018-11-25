@@ -10,8 +10,6 @@ public class Comment implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Entry entry;
-
     private String content;
 
     public Long getId() {
@@ -20,14 +18,6 @@ public class Comment implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Entry getEntry() {
-        return entry;
-    }
-
-    public void setEntry(Entry entry) {
-        this.entry = entry;
     }
 
     public String getContent() {
@@ -46,8 +36,7 @@ public class Comment implements Serializable {
         this.author = author;
     }
 
-    public Comment(Entry entry, String content, User author) {
-        this.entry = entry;
+    public Comment(String content, User author) {
         this.content = content;
         this.author = author;
     }

@@ -17,7 +17,22 @@
     <link rel="icon" href="favicon.ico" />
 </head>
 <body>
-
+<header class="navbar" style="padding: 1rem; box-shadow: 2px 2px 2px lightgrey;">
+    <!-- Logo, here on the left -->
+    <section class="navbar-primary">
+        <a href="/BacklogWeb" class="navbar-brand"><img src="asset/img/favicon-256.png" width="32" height="32" alt=""></a>
+    </section>
+    <section class="navbar-section">
+        <c:choose>
+            <c:when test="${sessionScope.currentUser == null}">
+                <a href="/BacklogWeb/LoginServlet" class="btn btn-success">Sign In</a>
+            </c:when>
+            <c:otherwise>
+                <a href="/BacklogWeb" class="btn btn-link"><i class="icon icon-2x icon-people"></i>  <span class="text-large" style="margin-left: 1rem;vertical-align: super;">${sessionScope.currentUser.username}</span> </a>
+            </c:otherwise>
+        </c:choose>
+    </section>
+</header>
 
 <div class="login">
     <div class="container grid-lg">

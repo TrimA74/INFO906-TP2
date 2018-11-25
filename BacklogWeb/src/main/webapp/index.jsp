@@ -92,7 +92,8 @@
                         <td>${entry.estimation}</td>
                         <td>${entry.description}</td>
                         <td>
-                            <form class="d-inline-block" action="DeleteBacklogEntryServlet" method="get">
+                            <form class="d-inline-block" action="ViewEntryCommentsServlet" method="get">
+                                <input type="hidden" name="entry_id" value="${entry.id}">
                                 <button class="btn btn-primary"><i class="icon icon-message"></i></button>
                             </form>
                             <form class="d-inline-block" action="ModifyBacklogEntryServlet" method="get">

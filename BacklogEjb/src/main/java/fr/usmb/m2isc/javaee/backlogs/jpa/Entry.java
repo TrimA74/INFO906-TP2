@@ -12,6 +12,7 @@ public class Entry implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     public List<Comment> getComments() {
         return comments;
     }
@@ -48,7 +49,11 @@ public class Entry implements Serializable {
         this.description = description;
     }
 
-    @OneToMany(cascade = {CascadeType.ALL})
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    @OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     private List<Comment> comments;
 
 

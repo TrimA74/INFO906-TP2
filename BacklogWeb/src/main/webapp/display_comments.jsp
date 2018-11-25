@@ -1,15 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: SEBIRE
-  Date: 23/11/2018
-  Time: 22:46
+  Date: 25/11/2018
+  Time: 13:56
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Modifier une entrée du backlog</title>
+    <title>Voir les commentaires</title>
     <link rel="stylesheet" type="text/css" href="asset/css/base.css" >
     <link rel="stylesheet" type="text/css" href="asset/css/spectre.min.css">
     <link rel="stylesheet" type="text/css" href="asset/css/spectre-exp.min.css">
@@ -43,22 +44,33 @@
                         ${error}
                 </div>
             </c:if>
-            <h2>Modifier une entrée du backlog</h2>
-            <!-- form input control -->
-            <div class="form-group">
-                <form action="ModifyBacklogEntryServlet" method="post">
-                    <input type="hidden" name="entry_id" value="${entry.id}">
-                    <label class="form-label" for="name">Name</label>
-                    <input class="form-input" name="name" type="text" id="name" placeholder="Name" value="${entry.name}">
-                    <label class="form-label" for="priority" >Priorité</label>
-                    <input class="form-input" id="priority" name="priority" type="number" value="${entry.priority}">
-                    <label class="form-label" for="estimation">Estimation</label>
-                    <input class="form-input" id="estimation" name="estimation" type="number" value="${entry.estimation}">
-                    <label class="form-label" for="textarea">Description</label>
-                    <textarea class="form-input" id="textarea" name="description" placeholder="Textarea" rows="3">${entry.description}</textarea>
-                    <button class="btn btn-primary button" type="submit">Modifier</button>
-                </form>
+            <h2>Commentaires</h2>
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">Comments</div>
+                </div>
+                <div class="panel-nav">
+                    <!-- navigation components: tabs, breadcrumbs or pagination -->
+                </div>
+                <div class="panel-body">
+                    <c:forEach var="comment"  items="${comments}" >
+                        <c:set var = "initial" value = "${fn:substring(comment.author.username, 0, 1)}" />
+                        <div class="tile">
+                            <div class="tile-icon">
+                                <figure class="avatar" data-initial="${initial}"></figure>
+                            </div>
+                            <div class="tile-content">
+                                <p class="tile-title text-bold">${comment.author.username}</p>
+                                <p class="tile-subtitle">${comment.content}</p>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+                <div class="panel-footer">
+                    <!-- buttons or inputs -->
+                </div>
             </div>
+
         </div>
     </div>
 </div>

@@ -103,4 +103,10 @@ public class OperationBean implements Operation {
 	    Agence a = new Agence(name, b);
         em.persist(a);
     }
+
+    @Override
+    public List<Comment> getCommentsByEntryId(Long entry_id) {
+	    Entry entry = em.find(Entry.class,entry_id);
+	    return entry.getComments();
+    }
 }

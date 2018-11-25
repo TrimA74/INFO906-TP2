@@ -25,4 +25,6 @@ public interface Operation {
     void updateEntry(Long entry_id, String name, String description, int priority, int estimation);
 
     void createAgency(String name);
+
+    List<Comment> getCommentsByEntryId(Long entry_id);
 }
